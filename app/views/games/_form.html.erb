@@ -1,0 +1,41 @@
+<%= form_for @game, html:{role: "form"} do |f| %>
+  <% if @game.errors.any? %>
+  <div class="alert alert-danger">
+    <h2><%= pluralize(@game.errors.count, "error") %> prohibited
+      this game from being saved:</h2>
+    <ul>
+    <% @game.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+  
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control", placeholder: "game's title" %>
+  </div>
+  
+  <fieldset>
+    <legend>Players</legend>
+
+    <datalist id="list_player_names">
+      <% @player_names.each do |name| %>
+        <option value="<%= name %>">
+      <% end %>
+    </datalist>
+    
+    <%= f.fields_for :players do |player_form| %>
+      <div class="form-group">
+        <%= player_form.label :name %>
+        <%= player_form.text_field :name, class: "form-control", 
+          placeholder: "player's name", list: 'list_player_names', autocomplete: 'off' %>
+        Remove: <%= player_form.check_box :_destroy %>
+      </div>
+    <% end %>
+    <button type="button" class="btn btn-link pull-right add-more-player"><span class="glyphicon glyphicon-plus"></span> add more</button>
+  </fieldset>
+  
+  <%= link_to 'cancel', :back %>
+  <button type="submit" class="btn btn-default">Submit</button>
+<% end %>

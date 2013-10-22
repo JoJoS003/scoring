@@ -1,0 +1,16 @@
+<div class="game list-group-item">
+  <div class="btn-group pull-right">
+    <%= link_to 'show', game, class: "btn btn-default" %>
+    <%= link_to 'edit', edit_game_path(game), class: "btn btn-default" %>
+    <%= link_to 'delete', game, method: :delete, class: "btn btn-default",
+      data: {confirm: 'Are you sure?' } %>
+  </div>
+  <h1><%= game.title %></h1>
+  
+  <ul class="players list-group">
+  <% game.rank_players.each do |player| %>
+    <li class="list-group-item"><span class="label label-default pull-right"><%= player.score %></span><%= player.name %></li>
+  <% end %>
+  </ul>
+  
+</div>
