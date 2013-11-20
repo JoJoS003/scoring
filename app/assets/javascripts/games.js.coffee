@@ -11,7 +11,10 @@ player_form_block = ->
       </div>
   """
 
-
 $(".add-more-player").click(->
   $(this).before(player_form_block())
+)
+
+$(".score-input").click(->
+  $(this).select()
 )

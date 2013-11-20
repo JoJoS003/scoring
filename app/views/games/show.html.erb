@@ -15,7 +15,7 @@
         <td>#<%= @game.rank(player) %></td>
         <td><%= player.name %></td>
         <td><%= player.score %></td>
-        <td><input type="number" class="form-control" id="points_player_<%= player.id %>" 
+        <td><input type="number" class="form-control score-input" id="points_player_<%= player.id %>" 
           name="players[<%= player.id %>]" value="0" ></td>
       </tr>
     <% end %>
