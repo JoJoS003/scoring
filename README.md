@@ -11,7 +11,7 @@ Execute `bundle install`, `bundle exec rake db:migrate` and finally `bundle exec
 
 ## Current Version
 
-0.1.0
+0.1.1
 
 ## Credits
 

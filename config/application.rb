@@ -8,7 +8,7 @@ Bundler.require(:default, Rails.env)
 
 module Scoring
 
-  VERSION = "0.1.0"  
+  VERSION = "0.1.1"  
   
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
